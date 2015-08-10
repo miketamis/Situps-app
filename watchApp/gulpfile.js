@@ -11,6 +11,8 @@ var path = require('path');
 var $ = require('gulp-load-plugins')();
 var browserify = require('browserify');
 var watchify = require('watchify');
+var ghPages = require('gulp-gh-pages');
+
 var source = require('vinyl-source-stream'),
 
     sourceFile = './app/scripts/app.jsx',
@@ -196,6 +198,11 @@ gulp.task('build', ['html', 'buildBundle', 'images', 'fonts', 'extras'], functio
         .pipe($.uglify())
         .pipe($.stripDebug())
         .pipe(gulp.dest('dist/scripts'));
+});
+
+gulp.task('deploy', ['build'], function() {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages());
 });
 
 // Default task
