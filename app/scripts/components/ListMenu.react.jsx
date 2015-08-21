@@ -3,10 +3,16 @@
 var React = require('react');
 var classNames = require('classnames');
 var SelectionList = require('../utils/SelectionList');
+var assert = require('assert');
 
 var ListMenu = React.createClass({
     getInitialState: function() {
         var self = this;
+        assert(this.props.items && this.props.items.length, 'No items in ListMenu');
+        this.props.items.forEach(function(item) {
+            assert(typeof item.text === 'string', 'Items do not have text value or text value isn\'t a string');
+        });
+
         try {
             SelectionList.getSelected(this.props.items);
         } catch(err) {
