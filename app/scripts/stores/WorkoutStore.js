@@ -5,6 +5,7 @@ var EventEmitter = require('events').EventEmitter;
 var assign = require('object-assign');
 var SelectionList = require('../utils/SelectionList');
 var workoutGenerator = require('../utils/WorkoutGenerator');
+var assert = require('assert');
 
 var CHANGE_EVENT = 'change';
 
@@ -19,9 +20,6 @@ function _getAge() {
     if(age !== 0 && !age) {
         throw new Error('No Age');
     }
-    if(isNaN(age)) {
-        throw new Error('Age is not a number');
-    }
     return age;
 }
 
@@ -30,9 +28,8 @@ function _resetData() {
 }
 
 function _setLevel(level) {
-    if(!isNumber(level)) {
-        throw new Error('Trying to set level to a value that isn\'t a number');
-    }
+    assert(level, 'Level must be defined');
+    assert(isNumber(level), 'Trying to set level to a value that isn\'t a number');
     localStorage.setItem('level', level);
 }
 
@@ -46,9 +43,7 @@ function _getLevel() {
     if(!level) {
         throw new Error('No Level');
     }
-    if(isNaN(level)) {
-        throw new Error('Level is not a number');
-    }
+    assert(level > 0 && Number.isInteger(level), 'Invalid Level');
     return level;
 }
 
@@ -64,9 +59,7 @@ function _resetLevel() {
 }
 
 function _setAge(age) {
-    if(!isNumber(age)) {
-        throw new Error('Trying to set age to a value that isn\'t a number');
-    }
+    assert(age === 0 || age === 1 || age === 2, 'Invalid Age');
     localStorage.setItem('age', age);
 }
 
@@ -85,6 +78,7 @@ function _getWorkout() {
 
 
 function _getCurrent(type) {
+
     var selected = SelectionList.getSelected(_getWorkout());
     if(selected.type === type) {
         return selected;
@@ -127,7 +121,7 @@ var WorkoutStore = assign({}, EventEmitter.prototype, {
         return _getCurrent('rest').amount;
     },
     getWorkout: function() {
-        return _workout;
+        return _getWorkout();
     },
     onFirst: function() {
         return _getWorkout()[0].selected;
