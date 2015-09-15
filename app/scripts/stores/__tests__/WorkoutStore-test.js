@@ -188,6 +188,7 @@ describe('TodoStore', function() {
         set_age_and_calculate_level();
         callback(finishWorkout);
         expect(window.localStorage.setItem).lastCalledWith('level', 11);
+        expect(window.localStorage.setItem.mock.calls.length).toBe(3);
         expect(workoutGenerator.generateWorkout.mock.calls.length).toBe(2);
     });
 
@@ -195,7 +196,8 @@ describe('TodoStore', function() {
         set_age_and_calculate_level();
         finishWorkout.levelChange = 0;
         callback(finishWorkout);
-        expect(workoutGenerator.generateWorkout.mock.calls.length).toBe(1);
+        expect(window.localStorage.setItem.mock.calls.length).toBe(2);
+        expect(workoutGenerator.generateWorkout.mock.calls.length).toBe(2);
     });
 
     it('Cancel workout regenerates workout', function() {
