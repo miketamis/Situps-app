@@ -29,7 +29,7 @@ var MainMenu = React.createClass({
         var menuList = [{text: 'Start'}, {text: 'Setting'}];
         return (
             <div>
-            <ListMenu items={menuList} onSelect={this.onSelect } />
+            <ListMenu items={menuList} onSelect={ this.onSelect } />
             </div>
         );
     }
