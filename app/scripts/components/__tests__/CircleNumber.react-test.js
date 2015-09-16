@@ -8,8 +8,8 @@ describe('CircleNumber', function () {
         var html = React.renderToStaticMarkup(< CircleNumber value={4}/>);
         expect(html).toBe('<div class="circle">4</div>');
     });
-    
-    it('should fail if value is assigned', function() {
+
+    it('should fail if value isnt assigned', function() {
         var CircleNumber = require('../CircleNumber.react.jsx');
         expect(function() {
             React.renderToStaticMarkup(< CircleNumber />);
