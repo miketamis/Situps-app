@@ -1,5 +1,6 @@
 jest.dontMock('../WorkoutScreen.react.jsx');
 jest.dontMock('classnames');
+jest.dontMock('object-assign');
 
 describe('WorkoutScreen', function () {
     var React = require('react/addons');

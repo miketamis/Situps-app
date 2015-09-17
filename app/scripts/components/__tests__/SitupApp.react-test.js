@@ -1,5 +1,6 @@
 jest.dontMock('../SitupApp.react.jsx');
 jest.dontMock('classnames');
+jest.dontMock('object-assign');
 
 describe('SitupApp', function () {
     var React = require('react/addons');
