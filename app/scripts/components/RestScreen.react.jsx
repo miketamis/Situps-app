@@ -48,12 +48,12 @@ var RestScreen = React.createClass({
         var percentage = this.state.rest * 360 / this.state.total;
         return (
             <div>
-            <Hint position="middle" value="&#9193;"/>
-            <div style={this.generateStyle(percentage)} className='doSitups'>
-            <span> Rest For </span>
-            <CircleNumber value={this.state.rest } />
-            <span> Seconds </span>
-            </div>
+                <Hint position="middle" value="&#9193;"/>
+                <div style={this.generateStyle(percentage)} className='doSitups'>
+                    <span> Rest For </span>
+                    <CircleNumber value={this.state.rest } />
+                    <span> Seconds </span>
+                </div>
             </div>
         );
     }
