@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Assigment 3.</title>
+    <meta content="Assignment 3." name="description">
+    <meta content="Mike Tamis" name="author">
+    <link href="writeup.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <h1>Assignment 3.</h1>
+
+    <h2>Emulator</h2>
+    For the emulator I went really simple and didn't even use any 3rd party libraries.
+    The emulator is 13 lines of Javascript and some CSS and HTML. The emulator simply creates
+    an IFrame and loads the app of choice into the iframe. Their are 4 Buttons to interface with the
+    app. The events for these buttons are sent through to the iframe using the
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage"> PostMessage </a>
+    function of web browsers.
+
+    <h2>Prototype</h2>
+    The prototype is a very simple Situp Trainer App. I completed most the task I set out the
+    complete, and didn't end up making any change to the original design. I didn't get time to add
+    in using the Gyroscope and Accelerometer to count the situps for you, but completed everything
+    else I set out to complete.
+
+    <h2>Testing with Jest</h2>
+    I very much enjoyed using Jest and its automocking feature, where everything is Mock by default.
+    It made each test very specific to the file it was testing. I also liked how you could get
+    a Coverage report very easily using istanbul. Which showed me what lines wernt covered and
+    pushed me towards 100% coverage. Below is the current Coverage output.
+<pre>
+--------------------------|----------|----------|----------|----------|----------------|
+File                      |  % Stmts | % Branch |  % Funcs |  % Lines |Uncovered Lines |
+--------------------------|----------|----------|----------|----------|----------------|
+ <span style="color:#00CC00;">actions/                </span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |                |
+ <span style="color:#00CC00;"> setupActions.js        </span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |                |
+ <span style="color:#00CC00;"> standardActions.js     </span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |                |
+ <span style="color:#00CC00;">components/             </span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |                |
+ <span style="color:#00CC00;"> CircleNumber.react.jsx </span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |                |
+ <span style="color:#00CC00;"> DoneScreen.react.jsx   </span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |                |
+ <span style="color:#00CC00;"> Hint.react.jsx         </span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |                |
+ <span style="color:#00CC00;"> ListMenu.react.jsx     </span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |                |
+ <span style="color:#00CC00;"> MainMenu.react.jsx     </span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |                |
+ <span style="color:#00CC00;"> ProgressBar.react.jsx  </span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |                |
+ <span style="color:#00CC00;"> RestScreen.react.jsx   </span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |                |
+ <span style="color:#00CC00;"> SettingScreen.react.jsx</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |                |
+ <span style="color:#00CC00;"> SitupApp.react.jsx     </span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |                |
+ <span style="color:#00CC00;"> TriOptions.react.jsx   </span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |                |
+ <span style="color:#00CC00;"> WorkoutScreen.react.jsx</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |                |
+ <span style="color:#00CC00;">dispatcher/             </span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |                |
+ <span style="color:#00CC00;"> AppDispatcher.js       </span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |                |
+ <span style="color:#00CC00;">stores/                 </span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |                |
+ <span style="color:#00CC00;"> PageStore.js           </span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |                |
+ <span style="color:#00CC00;"> WorkoutStore.js        </span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |                |
+ <span style="color:#00CC00;">utils/                  </span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |                |
+ <span style="color:#00CC00;"> SelectionList.js       </span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |                |
+ <span style="color:#00CC00;"> WorkoutGenerator.js    </span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |                |
+--------------------------|----------|----------|----------|----------|----------------|
+All files                 |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |      <span style="color:#00CC00;">100</span> |                |
+--------------------------|----------|----------|----------|----------|----------------|
+</pre>
+there were a couple of things I didn't like about jest. One being that the test took a couple of
+secounds to run and the other being the fact that I couldn't run the tests in a browser as the
+test were done in a virtual dom.
+
+<h2>React the rendering frame work</h2>
+I loved React. There wasn't anything I didn't like about React. It was fast, easy to write code in.
+Made the code very modular and easy to read. I will continue to use React in the future. React was
+everything I thought it would be and more.
+
+<h2>
+I did a manual test in most of the main browsers, Firefox, Chrome, Safari and IE. None gave any problems.
+
+</thead>
+</thead>
+</body>
+</html>
